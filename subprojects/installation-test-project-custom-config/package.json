@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "./node_modules/.bin/suman"
+    "test": "./node_modules/.bin/suman --config conf.js"
   },
   "repository": {
     "type": "git",
@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/sumanjs/suman-installation-test-project/issues"
   },
-  "homepage": "https://github.com/sumanjs/suman-installation-test-project#readme"
+  "homepage": "https://github.com/sumanjs/suman-installation-test-project#readme",
+  "devDependencies": {
+    "suman": "^1.1.512181"
+  }
 }
