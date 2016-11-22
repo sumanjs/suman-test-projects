@@ -1,0 +1,28 @@
+{
+  "name": "suman-installation-test-project",
+  "version": "1.0.0",
+  "description": "test the installation of suman into an independent project",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/suman"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sumanjs/suman-installation-test-project.git"
+  },
+  "keywords": [
+    "suman",
+    "test",
+    "bdd",
+    "tdd"
+  ],
+  "author": "Olegzandr Denman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sumanjs/suman-installation-test-project/issues"
+  },
+  "homepage": "https://github.com/sumanjs/suman-installation-test-project#readme"
+}
