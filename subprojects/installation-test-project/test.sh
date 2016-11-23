@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-npm link suman &&
+npm install -D oresoftware/suman && # install via Github
 
 # 1
 ./node_modules/.bin/suman --init -f &&
