@@ -6,6 +6,8 @@ const Test = suman.init(module);
 
 const argv = process.argv.slice(0);
 
+console.log('We are the one!');
+
 Test.create('test-all-projects', function (fs, child_process, path) {
 
   const spawn = child_process.spawn;

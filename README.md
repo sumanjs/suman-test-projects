@@ -7,3 +7,10 @@ The remote for this repo is here:
 
 This project and its subprojects are designed to test new installations of Suman to make sure
 pre-released and released versions pass basic sanity/smoke checks
+
+The `test-all.js` file at the root has its dependencies populated by the 
+following command in `test-all.sh`:
+
+```
+npm install -D oresoftware/suman &&  # installs via github, not npm
+```
