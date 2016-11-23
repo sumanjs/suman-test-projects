@@ -19,19 +19,23 @@ Test.create('test-all-projects', function (fs, child_process, path) {
 
       console.log('item', item);
 
-      this.it.cb('exits cleanly', t => {
+      this.it.cb('exits cleanly', { timeout: 25000 }, t => {
 
         const b = path.resolve(cwd, 'test.sh');
 
-        t.log('b',b);
-        t.log('cwd',cwd);
+        t.log('b', b);
+        t.log('cwd', cwd);
 
         console.log('b', b);
         console.log('cwd', cwd);
 
         const sh = spawn('sh', [ b ], {
           cwd: cwd,
-          stdio: ['ignore','inherit','inherit']
+          stdio: [ 'ignore', 'inherit', 'inherit' ]
+        });
+
+        t.on('done', function () {
+          sh.kill();
         });
 
         sh.on('close', function (code) {
