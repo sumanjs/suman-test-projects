@@ -9,22 +9,22 @@ const argv = process.argv.slice(0);
 Test.create('test-all-projects', function (fs, child_process, path) {
 
   const spawn = child_process.spawn;
-
-  const rt = path.resolve(__dirname,'subprojects');
+  const rt = path.resolve(__dirname, 'subprojects');
 
   fs.readdirSync(rt).forEach(item => {
 
-    if (fs.statSync(item).isDirectory()) {
+    const cwd = path.resolve(rt, item);
+
+    if (fs.statSync(cwd).isDirectory()) {
 
       console.log('item', item);
 
       this.it.cb('exits cleanly', t => {
 
-        const b = path.resolve(rt, item, 'test.sh');
-        const cwd = path.resolve(rt, item);
+        const b = path.resolve(cwd, 'test.sh');
 
-        // t.log('b',b);
-        // t.log('cwd',cwd);
+        t.log('b',b);
+        t.log('cwd',cwd);
 
         console.log('b', b);
         console.log('cwd', cwd);

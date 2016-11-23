@@ -5,7 +5,6 @@
 const os = require('os');
 const path = require('path');
 const numOfCPUs = os.cpus().length || 1;
-const pckgDotJson = require(path.resolve(__dirname, 'package.json'));
 
 
 module.exports = Object.freeze({
@@ -20,7 +19,7 @@ module.exports = Object.freeze({
     testSrcDir: 'test',                        // recommended that you create a test/test-src directory
     testTargetDir: 'test-target',              // recommended to transpile to test/test-target directory
     sumanHelpersDir: 'suman',
-    uniqueAppName: pckgDotJson.name || '',
+    uniqueAppName: 'suman-test-projects',
     browser: 'Firefox',                 // browser to open test results with
 
     //boolean

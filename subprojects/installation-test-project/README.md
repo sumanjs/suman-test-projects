@@ -1,6 +1,9 @@
 This project is designed to test whether we can run a basic install using
-suman --init
+---
+run "suman --init"
 and then run the tests
+---
+repeat X times
 
-and the run suman --init again
-and then run the tests
+the number of temporary suman helper dirs and temp suman.conf files should
+be the same as the number of suman --init calls
