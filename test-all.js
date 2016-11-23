@@ -19,7 +19,7 @@ Test.create('test-all-projects', function (fs, child_process, path) {
 
       console.log('item', item);
 
-      this.it.cb('exits cleanly', { timeout: 25000 }, t => {
+      this.it.cb('exits cleanly', { timeout: 45000 }, t => {
 
         const b = path.resolve(cwd, 'test.sh');
 
