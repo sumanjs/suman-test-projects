@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/sumanjs/suman-installation-test-project/issues"
   },
-  "homepage": "https://github.com/sumanjs/suman-installation-test-project#readme"
+  "homepage": "https://github.com/sumanjs/suman-installation-test-project#readme",
+  "devDependencies": {
+    "suman": "github:oresoftware/suman"
+  }
 }
