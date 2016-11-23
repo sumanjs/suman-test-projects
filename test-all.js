@@ -30,7 +30,8 @@ Test.create('test-all-projects', function (fs, child_process, path) {
         console.log('cwd', cwd);
 
         const sh = spawn('sh', [ b ], {
-          cwd: cwd
+          cwd: cwd,
+          stdio: ['ignore','inherit','inherit']
         });
 
         sh.on('close', function (code) {
