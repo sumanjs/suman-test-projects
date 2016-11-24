@@ -41,7 +41,7 @@ Test.create('test-all-projects', function (fs, child_process, path) {
         var stderr = '';
 
         sh.stderr.on('data', function (d) {
-          if (!String(d).match(/npm info/) && !String(d).match(/npm http/)) {
+          if (!String(d).match(/npm/ig) && !String(d).match(/npm/ig)) {
             stderr += d;
             process.stderr.write.apply(process.stderr, arguments);
           }
