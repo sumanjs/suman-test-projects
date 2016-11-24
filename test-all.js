@@ -40,6 +40,8 @@ Test.create('test-all-projects', function (fs, child_process, path) {
 
         var stderr = '';
 
+        sh.stderr.setEncoding('utf8');
+
         sh.stderr.on('data', function (d) {
           if (!String(d).match(/npm/ig) && !String(d).match(/npm/ig)) {
             stderr += d;
