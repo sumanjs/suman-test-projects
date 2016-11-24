@@ -48,7 +48,7 @@ Test.create('test-all-projects', function (fs, child_process, path) {
         const stream = byline(sh.stderr);
 
         stream.on('data', function(line) {
-          if (line && !String(line).match(/npm info/ig) && !String(line).match(/npm http/ig)) {
+          if (line && !String(line).match(/gyp/ig) && !String(line).match(/npm info/ig) && !String(line).match(/npm http/ig)) {
             stderr += String(line);
           }
         });
