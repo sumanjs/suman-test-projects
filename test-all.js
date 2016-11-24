@@ -33,16 +33,16 @@ Test.create('test-all-projects', function (fs, child_process, path) {
 
         const sh = spawn('sh', [ b ], {
           cwd: cwd,
-          stdio: [ 'ignore', 'ignore', 'ignore' ]
+          stdio: [ 'ignore', 'ignore', 'pipe' ]
         });
 
         // sh.stderr.pipe(process.stderr);
 
-        sh.stderr.on('data', function (d) {
-          if (!String(d).match(/npm info/) && !String(d).match(/npm http/)) {
-            process.stderr.write.apply(process.stderr, arguments);
-          }
-        });
+        // sh.stderr.on('data', function (d) {
+        //   if (!String(d).match(/npm info/) && !String(d).match(/npm http/)) {
+        //     process.stderr.write.apply(process.stderr, arguments);
+        //   }
+        // });
 
         t.on('done', function () {
           sh.kill();
