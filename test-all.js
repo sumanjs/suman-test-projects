@@ -33,7 +33,7 @@ Test.create('test-all-projects', function (fs, child_process, path) {
 
         const sh = spawn('sh', [ b ], {
           cwd: cwd,
-          stdio: [ 'ignore', 'pipe', 'pipe' ]
+          stdio: [ 'ignore', 'inherit', 'inherit' ]
         });
 
         // sh.stdout.pipe(fs.createWriteStream('/dev/null'));
