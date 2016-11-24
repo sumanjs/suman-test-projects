@@ -52,7 +52,10 @@ Test.create('test-all-projects', function (fs, child_process, path) {
 
         sh.stderr.on('data', function (d) {
 
-          const lines = String(d).split('\n');
+          const lines = String(d).split('\n').filter(s => {
+            return String(s).match(/\S/);
+          });
+
           line += lines.shift();
           fuck(line);
 
