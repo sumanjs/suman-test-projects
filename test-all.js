@@ -33,7 +33,7 @@ Test.create('test-all-projects', function (fs, child_process, path) {
 
         const sh = spawn('sh', [ b ], {
           cwd: cwd,
-          stdio: [ 'ignore', 'ignore', 'pipe' ]
+          stdio: [ 'ignore', 'ignore', 'ignore' ]
         });
 
         // sh.stderr.pipe(process.stderr);
