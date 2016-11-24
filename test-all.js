@@ -50,6 +50,7 @@ Test.create('test-all-projects', function (fs, child_process, path) {
         stream.on('data', function(line) {
           if (line && !String(line).match(/gyp/ig) && !String(line).match(/npm info/ig) && !String(line).match(/npm http/ig)) {
             stderr += String(line);
+            process.stderr.write('\n' + line);
           }
         });
 
