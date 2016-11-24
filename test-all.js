@@ -8,6 +8,8 @@ const argv = process.argv.slice(0);
 
 console.log('We are the one!');
 
+const byline = require('byline');
+
 Test.create('test-all-projects', function (fs, child_process, path) {
 
   const spawn = child_process.spawn;
@@ -33,7 +35,7 @@ Test.create('test-all-projects', function (fs, child_process, path) {
 
         const sh = spawn('sh', [ b ], {
           cwd: cwd,
-          stdio: [ 'ignore', 'inherit', 'inherit' ]
+          stdio: [ 'ignore', 'pipe', 'pipe' ]
         });
 
         // sh.stdout.pipe(fs.createWriteStream('/dev/null'));
@@ -41,14 +43,15 @@ Test.create('test-all-projects', function (fs, child_process, path) {
         var stderr = '';
         var line = '';
 
-        // sh.stderr.setEncoding('utf8');
+        sh.stderr.setEncoding('utf8');
 
-        function fuck (d) {
-          if (d && !String(d).match(/npm info/ig) && !String(d).match(/npm http/ig)) {
-            stderr += String(d);
-            // process.stderr.write(String(d));
+        const stream = byline(sh.stderr);
+
+        stream.on('data', function(line) {
+          if (line && !String(line).match(/npm info/ig) && !String(line).match(/npm http/ig)) {
+            stderr += String(line);
           }
-        }
+        });
 
         // sh.stderr.on('data', function (d) {
         //
@@ -82,8 +85,7 @@ Test.create('test-all-projects', function (fs, child_process, path) {
             t.done();
           }
           else {
-            // t.done(stderr);
-            t.done(code);
+            t.done(new Error(stderr));
           }
 
         });

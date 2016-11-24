@@ -27,5 +27,8 @@
   "homepage": "https://github.com/sumanjs/suman-test-projects#readme",
   "devDependencies": {
     "suman": "github:oresoftware/suman"
+  },
+  "dependencies": {
+    "byline": "^5.0.0"
   }
 }
