@@ -39,14 +39,29 @@ Test.create('test-all-projects', function (fs, child_process, path) {
         sh.stdout.pipe(fs.createWriteStream('/dev/null'));
 
         var stderr = '';
+        var line = '';
 
         sh.stderr.setEncoding('utf8');
 
-        sh.stderr.on('data', function (d) {
-          if (!String(d).match(/npm/ig) && !String(d).match(/npm/ig)) {
+        function fuck (d) {
+          if (!String(d).match(/npm info/ig) && !String(d).match(/npm http/ig)) {
             stderr += d;
-            process.stderr.write.apply(process.stderr, arguments);
+            process.stderr.write.apply(process.stderr, d);
           }
+        }
+
+        sh.stderr.on('data', function (d) {
+
+          const lines = String(d).split('\n');
+          line += lines.shift();
+          fuck(line);
+
+          for (var i = 0; i < lines.length - 1; i++) {
+            fuck(lines[ i ]);
+          }
+
+          line = lines[ i ];
+
         });
 
         t.on('done', function () {
@@ -55,13 +70,15 @@ Test.create('test-all-projects', function (fs, child_process, path) {
 
         sh.on('close', function (code) {
 
+          fuck(line);
+
           t.log('code =>', code);
           console.log('code =>', code);
 
-          if(code === 0){
+          if (code === 0) {
             t.done();
           }
-          else{
+          else {
             t.done(stderr);
           }
 
