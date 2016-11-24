@@ -33,15 +33,15 @@ Test.create('test-all-projects', function (fs, child_process, path) {
 
         const sh = spawn('sh', [ b ], {
           cwd: cwd,
-          // stdio: [ 'ignore', 'ignore', 'ignore' ]
+          stdio: [ 'ignore', 'pipe', 'pipe' ]
         });
 
-        sh.stdout.pipe(fs.createWriteStream('/dev/null'));
+        // sh.stdout.pipe(fs.createWriteStream('/dev/null'));
 
         var stderr = '';
         var line = '';
 
-        sh.stderr.setEncoding('utf8');
+        // sh.stderr.setEncoding('utf8');
 
         function fuck (d) {
           if (d && !String(d).match(/npm info/ig) && !String(d).match(/npm http/ig)) {
@@ -50,22 +50,22 @@ Test.create('test-all-projects', function (fs, child_process, path) {
           }
         }
 
-        sh.stderr.on('data', function (d) {
-
-          const lines = String(d).split('\n').filter(s => {
-            return s && String(s).length && String(s).match(/\S/);
-          });
-
-          line += lines.shift();
-          fuck(line);
-
-          for (var i = 0; i < lines.length - 1; i++) {
-            fuck(lines[ i ]);
-          }
-
-          line = lines[ i ];
-
-        });
+        // sh.stderr.on('data', function (d) {
+        //
+        //   const lines = String(d).split('\n').filter(s => {
+        //     return s && String(s).length && String(s).match(/\S/);
+        //   });
+        //
+        //   line += lines.shift();
+        //   fuck(line);
+        //
+        //   for (var i = 0; i < lines.length - 1; i++) {
+        //     fuck(lines[ i ]);
+        //   }
+        //
+        //   line = lines[ i ];
+        //
+        // });
 
         t.on('done', function () {
           sh.kill();
@@ -73,7 +73,7 @@ Test.create('test-all-projects', function (fs, child_process, path) {
 
         sh.on('close', function (code) {
 
-          fuck(line);
+          // fuck(line);
 
           t.log('code =>', code);
           console.log('code =>', code);
