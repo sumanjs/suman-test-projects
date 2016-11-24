@@ -82,7 +82,8 @@ Test.create('test-all-projects', function (fs, child_process, path) {
             t.done();
           }
           else {
-            t.done(stderr);
+            // t.done(stderr);
+            t.done(code);
           }
 
         });

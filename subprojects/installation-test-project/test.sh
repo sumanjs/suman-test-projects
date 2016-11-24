@@ -16,7 +16,7 @@ npm test -- --suman-helpers-dir=$(ls -dr suman-* | head -1) &&
 
 # 4
 ./node_modules/.bin/suman --init -f &&
-npm test -- --suman-helpers-dir=$(ls -dr suman-* | head -1) &&
+npm test -- --suman-helpers-dir=$(ls -dr suman-* | head -1)
 
 # old stuff below:
 
@@ -26,5 +26,5 @@ npm test -- --suman-helpers-dir=$(ls -dr suman-* | head -1) &&
 # we want to force suman to use the temporary helpers dir instead
 #npm test -- --suman-helpers-dir=$(find . -maxdepth 1 -type d -name 'suman-*'| head -n1)
 
-echo "bash exit code => $?" &&
-exit "$?"
+#echo "bash exit code => $?" &&
+#exit "$?"

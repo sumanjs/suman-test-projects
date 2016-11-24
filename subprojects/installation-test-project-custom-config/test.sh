@@ -2,7 +2,7 @@
 
 #npm install
 npm link suman &&
-npm test &&
+npm test
 
-echo "bash exit code => $?" &&
-exit "$?"
+#echo "bash exit code => $?" &&
+#exit "$?"
