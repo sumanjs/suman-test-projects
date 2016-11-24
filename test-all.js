@@ -45,7 +45,7 @@ Test.create('test-all-projects', function (fs, child_process, path) {
 
         function fuck (d) {
           if (d && !String(d).match(/npm info/ig) && !String(d).match(/npm http/ig)) {
-            stderr += d;
+            stderr += String(d);
             // process.stderr.write(String(d));
           }
         }
@@ -53,7 +53,7 @@ Test.create('test-all-projects', function (fs, child_process, path) {
         sh.stderr.on('data', function (d) {
 
           const lines = String(d).split('\n').filter(s => {
-            return String(s).match(/\S/);
+            return s && String(s).length && String(s).match(/\S/);
           });
 
           line += lines.shift();
