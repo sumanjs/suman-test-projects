@@ -33,16 +33,19 @@ Test.create('test-all-projects', function (fs, child_process, path) {
 
         const sh = spawn('sh', [ b ], {
           cwd: cwd,
-          stdio: [ 'ignore', 'ignore', 'ignore' ]
+          // stdio: [ 'ignore', 'ignore', 'ignore' ]
         });
 
-        // sh.stderr.pipe(process.stderr);
+        sh.stdout.pipe(fs.createWriteStream('/dev/null'));
 
-        // sh.stderr.on('data', function (d) {
-        //   if (!String(d).match(/npm info/) && !String(d).match(/npm http/)) {
-        //     process.stderr.write.apply(process.stderr, arguments);
-        //   }
-        // });
+        var stderr = '';
+
+        sh.stderr.on('data', function (d) {
+          if (!String(d).match(/npm info/) && !String(d).match(/npm http/)) {
+            stderr += d;
+            process.stderr.write.apply(process.stderr, arguments);
+          }
+        });
 
         t.on('done', function () {
           sh.kill();
@@ -53,7 +56,12 @@ Test.create('test-all-projects', function (fs, child_process, path) {
           t.log('code =>', code);
           console.log('code =>', code);
 
-          t.done(code);
+          if(code === 0){
+            t.done();
+          }
+          else{
+            t.done(stderr);
+          }
 
         });
 
