@@ -44,7 +44,7 @@ Test.create('test-all-projects', function (fs, child_process, path) {
         sh.stderr.setEncoding('utf8');
 
         function fuck (d) {
-          if (!String(d).match(/npm info/ig) && !String(d).match(/npm http/ig)) {
+          if (d && !String(d).match(/npm info/ig) && !String(d).match(/npm http/ig)) {
             stderr += d;
             // process.stderr.write(String(d));
           }
