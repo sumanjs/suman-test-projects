@@ -46,7 +46,7 @@ Test.create('test-all-projects', function (fs, child_process, path) {
         function fuck (d) {
           if (!String(d).match(/npm info/ig) && !String(d).match(/npm http/ig)) {
             stderr += d;
-            process.stderr.write(String(d));
+            // process.stderr.write(String(d));
           }
         }
 
