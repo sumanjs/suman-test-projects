@@ -4,5 +4,5 @@
 # if this script exits cleanly, then all tests pass
 
 echo "jesus is watching" &&
-npm install -D oresoftware/suman 1>& /dev/null &&  # installs via github, not npm
+npm install -D oresoftware/suman > /dev/null &&  # installs via github, not npm
 ./node_modules/.bin/suman test-all.js --cwd-is-root
