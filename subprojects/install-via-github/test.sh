@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-npm install &&
+npm install --quiet &&
 npm test
 
 #echo "bash exit code => $?" &&

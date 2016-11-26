@@ -16,7 +16,7 @@ done
 
 echo "now installing npm deps in this dir => $PWD"
 
-npm install  > /dev/null &&  # installs via github, not npm
+npm install --quiet  &&  # installs via github, not npm
 # ./node_modules/.bin/suman test-all.js --cwd-is-root
 
 
