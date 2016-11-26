@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-npm install --quiet &&
+npm --loglevel=warn install &&
 #npm link suman &&
 npm test
 

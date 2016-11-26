@@ -30,7 +30,7 @@ Test.create('test-all-projects', function (fs, child_process, path) {
 
         const sh = spawn('sh', [ b ], {
           cwd: cwd,
-          stdio: [ 'ignore', 'pipe', 'pipe' ]
+          stdio: [ 'ignore', 'inherit', 'inherit' ]
         });
 
         // sh.stdout.pipe(fs.createWriteStream('/dev/null'));
@@ -38,16 +38,16 @@ Test.create('test-all-projects', function (fs, child_process, path) {
         var stderr = '';
         var line = '';
 
-        sh.stderr.setEncoding('utf8');
-
-        const stream = byline(sh.stderr);
-
-        stream.on('data', function(line) {
-          if (line && !String(line).match(/gyp/ig) && !String(line).match(/npm info/ig) && !String(line).match(/npm http/ig)) {
-            stderr += String(line);
-            process.stderr.write('\n' + line);
-          }
-        });
+        // sh.stderr.setEncoding('utf8');
+        //
+        // const stream = byline(sh.stderr);
+        //
+        // stream.on('data', function(line) {
+        //   if (line && !String(line).match(/gyp/ig) && !String(line).match(/npm info/ig) && !String(line).match(/npm http/ig)) {
+        //     stderr += String(line);
+        //     process.stderr.write('\n' + line);
+        //   }
+        // });
 
         t.once('done', function () {
           sh.kill();
@@ -62,7 +62,8 @@ Test.create('test-all-projects', function (fs, child_process, path) {
             t.done();
           }
           else {
-            t.done(new Error(stderr));
+            t.done(code);
+            // t.done(new Error(stderr));
           }
 
         });
