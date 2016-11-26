@@ -4,7 +4,7 @@
   "description": "Smoke testing projects for Suman library",
   "main": "test-all.js",
   "scripts": {
-    "test": "suman"
+    "test": "./test/test-all.sh"
   },
   "repository": {
     "type": "git",

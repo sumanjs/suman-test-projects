@@ -13,7 +13,7 @@ const byline = require('byline');
 Test.create('test-all-projects', function (fs, child_process, path) {
 
   const spawn = child_process.spawn;
-  const rt = path.resolve(__dirname, 'subprojects');
+  const rt = path.resolve(__dirname,'..', 'subprojects');
 
   fs.readdirSync(rt).forEach(item => {
 
@@ -21,17 +21,12 @@ Test.create('test-all-projects', function (fs, child_process, path) {
 
     if (fs.statSync(cwd).isDirectory()) {
 
-      console.log('item', item);
 
       this.it.cb('exits cleanly', { timeout: 45000 }, t => {
 
+        console.log('=> running item => ', item);
+
         const b = path.resolve(cwd, 'test.sh');
-
-        t.log('b', b);
-        t.log('cwd', cwd);
-
-        console.log('b', b);
-        console.log('cwd', cwd);
 
         const sh = spawn('sh', [ b ], {
           cwd: cwd,
@@ -54,30 +49,11 @@ Test.create('test-all-projects', function (fs, child_process, path) {
           }
         });
 
-        // sh.stderr.on('data', function (d) {
-        //
-        //   const lines = String(d).split('\n').filter(s => {
-        //     return s && String(s).length && String(s).match(/\S/);
-        //   });
-        //
-        //   line += lines.shift();
-        //   fuck(line);
-        //
-        //   for (var i = 0; i < lines.length - 1; i++) {
-        //     fuck(lines[ i ]);
-        //   }
-        //
-        //   line = lines[ i ];
-        //
-        // });
-
-        t.on('done', function () {
+        t.once('done', function () {
           sh.kill();
         });
 
-        sh.on('close', function (code) {
-
-          // fuck(line);
+        sh.once('close', function (code) {
 
           t.log('code =>', code);
           console.log('code =>', code);
