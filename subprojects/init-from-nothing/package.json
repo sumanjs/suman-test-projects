@@ -1,0 +1,15 @@
+{
+  "name": "init-from-nothing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/suman test/one.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "suman": "github:oresoftware/suman#dev"
+  }
+}

@@ -29,6 +29,6 @@
     "lodash": "^4.17.2"
   },
   "devDependencies": {
-    "suman": "git://github.com/oresoftware/suman.git"
+    "suman": "github:oresoftware/suman#dev"
   }
 }

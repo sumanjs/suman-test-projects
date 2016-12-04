@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-npm --loglevel=warn install &&
-#npm link suman &&
+#rm -rf node_modules
+npm link suman
+npm --loglevel=warn --progress=false install &&
 npm test
 
 #echo "bash exit code => $?" &&

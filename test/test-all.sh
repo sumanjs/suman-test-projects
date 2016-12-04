@@ -16,9 +16,8 @@ done
 
 echo "now installing npm deps in this dir => $PWD"
 
-npm --loglevel=warn install  &&  # installs via github, not npm
-# ./node_modules/.bin/suman test-all.js --cwd-is-root
-
+# installs via github, not npm
+npm --loglevel=warn --progress=false install  &&
 
 echo "now running suman tests"
 ./node_modules/.bin/suman test/test-all.js
