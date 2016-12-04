@@ -26,6 +26,6 @@
   },
   "homepage": "https://github.com/sumanjs/suman-installation-test-project#readme",
   "devDependencies": {
-    "suman": "git://github.com/oresoftware/suman.git"
+    "suman": "git://github.com/oresoftware/suman.git#dev"
   }
 }
