@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
-#rm -rf node_modules
-#npm --loglevel=warn --progress=false install -D oresoftware/suman && # install via Github
 
-npm link suman
+rm -rf node_modules
+npm --loglevel=error --progress=false install -D oresoftware/suman#dev && # install via Github
 
 # 1
 ./node_modules/.bin/suman --init -f &&
