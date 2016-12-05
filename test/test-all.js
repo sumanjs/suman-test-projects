@@ -10,67 +10,62 @@ console.log('We are the one!');
 
 const byline = require('byline');
 
-Test.create('test-all-projects', function (fs, child_process, path) {
+Test.create('test-all-projects', {parallel: false}, function (fs, child_process, path) {
 
-  const spawn = child_process.spawn;
-  const rt = path.resolve(__dirname,'..', 'subprojects');
+    const spawn = child_process.spawn;
+    const rt = path.resolve(__dirname, '..', 'subprojects');
 
-  fs.readdirSync(rt).forEach(item => {
+    fs.readdirSync(rt).forEach(item => {
 
-    const cwd = path.resolve(rt, item);
+        const cwd = path.resolve(rt, item);
 
-    if (fs.statSync(cwd).isDirectory()) {
+        if (fs.statSync(cwd).isDirectory()) {
 
 
-      this.it.cb('exits cleanly', { timeout: 45000 }, t => {
+            this.it.cb('exits cleanly', {timeout: 45000}, t => {
 
-        console.log('=> running item => ', item);
+                console.log('=> running item => ', item);
+                const b = path.resolve(cwd, 'test.sh');
 
-        const b = path.resolve(cwd, 'test.sh');
+                const sh = spawn('sh', [b], {
+                    cwd: cwd,
+                    stdio: ['ignore', 'inherit', 'inherit']
+                });
 
-        const sh = spawn('sh', [ b ], {
-          cwd: cwd,
-          stdio: [ 'ignore', 'inherit', 'inherit' ]
-        });
+                // sh.stdout.pipe(fs.createWriteStream('/dev/null'));
 
-        // sh.stdout.pipe(fs.createWriteStream('/dev/null'));
+                var stderr = '';
+                var line = '';
 
-        var stderr = '';
-        var line = '';
+                // sh.stderr.setEncoding('utf8');
+                //
+                // const stream = byline(sh.stderr);
+                //
+                // stream.on('data', function(line) {
+                //   if (line && !String(line).match(/gyp/ig) && !String(line).match(/npm info/ig) && !String(line).match(/npm http/ig)) {
+                //     stderr += String(line);
+                //     process.stderr.write('\n' + line);
+                //   }
+                // });
 
-        // sh.stderr.setEncoding('utf8');
-        //
-        // const stream = byline(sh.stderr);
-        //
-        // stream.on('data', function(line) {
-        //   if (line && !String(line).match(/gyp/ig) && !String(line).match(/npm info/ig) && !String(line).match(/npm http/ig)) {
-        //     stderr += String(line);
-        //     process.stderr.write('\n' + line);
-        //   }
-        // });
+                t.once('done', function () {
+                    sh.kill();
+                });
 
-        t.once('done', function () {
-          sh.kill();
-        });
+                sh.once('close', function (code) {
 
-        sh.once('close', function (code) {
+                    t.log('code =>', code);
+                    console.log('code =>', code);
 
-          t.log('code =>', code);
-          console.log('code =>', code);
+                    // t.done(new Error(stderr));
+                    t.done(code);
 
-          if (code === 0) {
-            t.done();
-          }
-          else {
-            t.done(code);
-            // t.done(new Error(stderr));
-          }
 
-        });
+                });
 
-      });
-    }
+            });
+        }
 
-  });
+    });
 
 });
