@@ -10,12 +10,9 @@ npm install -D --silent --progress=false github:oresoftware/suman#dev -f > ${OUT
 echo "...Making test directory..." &&
 mkdir test
 echo "....initing suman..." &&
-SUMAN_DEBUG=s ./node_modules/.bin/suman --init -f &&
+./node_modules/.bin/suman --init -f &&
 echo "....DONE initing suman..." &&
 echo $(ls -a) &&
 echo "....creating new test file..." &&
-SUMAN_DEBUG=s ./node_modules/.bin/suman --create test/one.test.js &&
+./node_modules/.bin/suman --create test/one.test.js &&
 npm test
-
-#echo "bash exit code => $?" &&
-#exit "$?"

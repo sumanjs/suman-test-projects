@@ -34,8 +34,11 @@ fi
 # installs via github, not npm
 npm --loglevel=warn --progress=false install > ${OUTPUT_PATH} 2>&1  &&
 
+SUMAN_DOT_DIR=$(cd ~/.suman && pwd)
 
-if [ -e "$(cd ~/.suman && pwd)" ]; then
+echo "SUMAN_DOT_DIR => $SUMAN_DOT_DIR"
+
+if [ -d "${SUMAN_DOT_DIR}" ]; then
   echo "items in .suman/node_modules/.bin dir => $(cd  ~/.suman/node_modules/.bin/ && ls -a)"
  else
    echo " ~/.suman dir was not created, test fail "
