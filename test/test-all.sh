@@ -35,8 +35,8 @@ fi
 
 
 # installs via github, not npm
-npm --loglevel=warn --progress=false install > ${OUTPUT_PATH} 2>&1  &&
-
+#npm --loglevel=warn --progress=false install > ${OUTPUT_PATH} 2>&1  &&
+npm --loglevel=warn --progress=false install &&
 
 SUMAN_DOT_DIR=$(cd ~/.suman && pwd)
 echo "SUMAN_DOT_DIR after install => $SUMAN_DOT_DIR"
