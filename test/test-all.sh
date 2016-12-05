@@ -21,10 +21,13 @@ for d in "$DIR"/* ; do
 done
 
 echo "now installing npm deps in this dir => $PWD"
-
 echo "items in this dir (PWD) => $(ls -a)"
 
-if [ -e "$(cd ~/.suman && pwd)" ]; then
+SUMAN_DOT_DIR=$(cd ~/.suman && pwd)
+
+echo "SUMAN_DOT_DIR before install => $SUMAN_DOT_DIR"
+
+if [ -d "${SUMAN_DOT_DIR}" ]; then
    echo "items in .suman dir => $(cd ~/.suman && ls -a)"
  else
    echo " ! No ~/.suman dir present yet... "
@@ -34,9 +37,9 @@ fi
 # installs via github, not npm
 npm --loglevel=warn --progress=false install > ${OUTPUT_PATH} 2>&1  &&
 
-SUMAN_DOT_DIR=$(cd ~/.suman && pwd)
 
-echo "SUMAN_DOT_DIR => $SUMAN_DOT_DIR"
+
+echo "SUMAN_DOT_DIR after install => $SUMAN_DOT_DIR"
 
 if [ -d "${SUMAN_DOT_DIR}" ]; then
   echo "items in .suman/node_modules/.bin dir => $(cd  ~/.suman/node_modules/.bin/ && ls -a)"
