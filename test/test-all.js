@@ -12,8 +12,10 @@ const byline = require('byline');
 
 Test.create('test-all-projects', {parallel: false}, function (fs, child_process, path) {
 
+    const projectRoot = path.resolve(__dirname, '/../');
+
     const spawn = child_process.spawn;
-    const rt = path.resolve(__dirname, '..', 'subprojects');
+    const rt = path.resolve(projectRoot, 'subprojects');
 
     fs.readdirSync(rt).forEach(item => {
 
@@ -28,6 +30,9 @@ Test.create('test-all-projects', {parallel: false}, function (fs, child_process,
                 const b = path.resolve(cwd, 'test.sh');
 
                 const sh = spawn('sh', [b], {
+                    env: Object.assign(process.env, {
+                        PROJECT_ROOT: projectRoot
+                    }),
                     cwd: cwd,
                     stdio: ['ignore', 'inherit', 'inherit']
                 });

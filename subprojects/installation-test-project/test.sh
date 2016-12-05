@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
 
+OUTPUT_PATH=${PROJECT_ROOT}/npm-install-output.log
+
 rm -rf node_modules
-npm --loglevel=error --progress=false install -D oresoftware/suman#dev && # install via Github
+npm --loglevel=error --progress=false install -D oresoftware/suman#dev ${OUTPUT_PATH} 2>&1 && # install via Github
 
 # 1
 ./node_modules/.bin/suman --init -f &&
