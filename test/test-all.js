@@ -14,8 +14,12 @@ Test.create('test-all-projects', {parallel: false}, function (fs, child_process,
 
     const projectRoot = path.resolve(__dirname, '/../');
 
+    console.log('projectroot => ', projectRoot);
+
     const spawn = child_process.spawn;
     const rt = path.resolve(projectRoot, 'subprojects');
+
+    console.log('rt => ',rt);
 
     fs.readdirSync(rt).forEach(item => {
 
