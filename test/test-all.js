@@ -12,7 +12,7 @@ const byline = require('byline');
 
 Test.create('test-all-projects', {parallel: false}, function (fs, child_process, path) {
 
-    const projectRoot = path.resolve(__dirname, '/../');
+    const projectRoot = path.resolve(__dirname + '/../');
 
     console.log('projectroot => ', projectRoot);
 
