@@ -16,6 +16,8 @@ done
 
 echo "now installing npm deps in this dir => $PWD"
 
+echo "items in this dir => $(ls -a)"
+
 # installs via github, not npm
 npm --loglevel=warn --progress=false install  &&
 
