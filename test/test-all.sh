@@ -29,7 +29,14 @@ fi
 npm --loglevel=warn --progress=false install  &&
 
 
-echo "items in .suman/node_modules/.bin dir => $(cd  ~/.suman/node_modules/.bin/ && ls -a)"
+if [ -e "$(cd ~/.suman && pwd)" ]; then
+  echo "items in .suman/node_modules/.bin dir => $(cd  ~/.suman/node_modules/.bin/ && ls -a)"
+ else
+   echo " ~/.suman dir was not created, test fail "
+   exit 1;
+fi
+
+
 
 echo "now running suman tests"
 ./node_modules/.bin/suman test/test-all.js
