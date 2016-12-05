@@ -7,9 +7,13 @@ echo "jesus is watching" &&
 
 rm -rf node_modules
 
-DIR="$(cd $(dirname $(dirname ${0})) && pwd)/subprojects";
 
-echo "subprojects DIR => $DIR"
+PROJECT_ROOT=$(cd $(dirname $(dirname ${0})) && pwd);
+OUTPUT_PATH=${PROJECT_ROOT}/npm-install-output.logs
+
+DIR="${PROJECT_ROOT}/subprojects";
+
+echo " => subprojects DIR => $DIR"
 
 for d in "$DIR"/* ; do
      echo "removing node_modules from this directory => $d"
@@ -28,7 +32,7 @@ fi
 
 
 # installs via github, not npm
-npm --loglevel=warn --progress=false install  &&
+npm --loglevel=warn --progress=false install > ${OUTPUT_PATH} 2>&1  &&
 
 
 if [ -e "$(cd ~/.suman && pwd)" ]; then
