@@ -27,8 +27,7 @@ Test.create('test-all-projects', {parallel: false}, function (fs, child_process,
 
         if (fs.statSync(cwd).isDirectory()) {
 
-
-            this.it.cb('exits cleanly', {timeout: 45000}, t => {
+            this.it.cb('exits cleanly', {timeout: 55000}, t => {
 
                 console.log('=> running item => ', item);
                 const b = path.resolve(cwd, 'test.sh');
