@@ -21,5 +21,8 @@ echo "items in this dir => $(ls -a)"
 # installs via github, not npm
 npm --loglevel=warn --progress=false install  &&
 
+
+echo "items in .suman/node_modules/.bin dir => $(cd  ~/.suman/node_modules/.bin/ && ls -a)"
+
 echo "now running suman tests"
 ./node_modules/.bin/suman test/test-all.js
