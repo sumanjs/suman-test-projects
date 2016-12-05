@@ -16,7 +16,14 @@ done
 
 echo "now installing npm deps in this dir => $PWD"
 
-echo "items in this dir => $(ls -a)"
+echo "items in this dir (PWD) => $(ls -a)"
+
+if [ -e "$(cd ~/.suman && pwd)" ]; then
+   echo "items in .suman dir => $(cd ~/.suman && ls -a)"
+ else
+   echo " ! No ~/.suman dir present yet... "
+fi
+
 
 # installs via github, not npm
 npm --loglevel=warn --progress=false install  &&
