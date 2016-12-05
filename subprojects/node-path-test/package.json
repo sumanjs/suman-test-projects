@@ -1,0 +1,29 @@
+{
+  "name": "node-path-test",
+  "version": "0.0.101",
+  "description": "Test to see if NODE_PATH precedence works with Suman ecosystem",
+  "main": "index.js",
+  "scripts": {
+    "test": "suman"
+  },
+  "repository": {
+    "type": "git",
+    "url": "null"
+  },
+  "keywords": [
+    "Suman",
+    "bdd",
+    "tdd",
+    "test",
+    "meta"
+  ],
+  "author": "Olegzandr",
+  "license": "ISC",
+  "dependencies": {
+    "istanbul": "^0.4.5",
+    "which": "^1.2.12"
+  },
+  "devDependencies": {
+    "suman": "oresoftware/suman#dev"
+  }
+}
