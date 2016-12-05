@@ -9,6 +9,8 @@ rm -rf node_modules
 
 DIR="$(cd $(dirname $(dirname ${0})) && pwd)/subprojects";
 
+echo "subprojects DIR => $DIR"
+
 for d in "$DIR"/* ; do
      echo "removing node_modules from this directory => $d"
     ZOOM=$(cd "$d" && rm -rf node_modules)
