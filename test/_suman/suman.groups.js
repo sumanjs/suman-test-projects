@@ -81,6 +81,8 @@ module.exports = data => {
 
             getBuildArgs: function () {
 
+                return '';   // no longer need this
+
                 const pts = this.getPathToScript();
                 const p = path.resolve(r + '/' + this.name);
 

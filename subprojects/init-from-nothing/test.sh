@@ -5,6 +5,7 @@
 
 OUTPUT_PATH=${PROJECT_ROOT:-$PWD}/npm-install-output.log
 
+#chown $(whoami) -R test
 rm -rf test
 echo ".....Installing suman with 'npm install -D --silent --progress=false github:oresoftware/suman#dev'...." &&
 SUMAN_POSTINSTALL_IS_DAEMON=yes npm install -D --silent --progress=false github:oresoftware/suman#dev -f > ${OUTPUT_PATH} 2>&1 &&
