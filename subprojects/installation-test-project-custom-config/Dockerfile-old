@@ -8,11 +8,13 @@ RUN npm cache clean
 
 RUN chmod -R 777 $(npm root -g)
 
-RUN mkdir -p /usr/src/app
+RUN useradd -ms /bin/bash newuser
 
-WORKDIR /usr/src/app
+USER newuser
+WORKDIR /home/newuser
 
 COPY . .
 
-ENTRYPOINT ["/usr/src/app/test.sh"]
+
+ENTRYPOINT ["/home/newuser/test.sh"]
 

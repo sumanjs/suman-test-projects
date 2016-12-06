@@ -1,9 +1,22 @@
 #!/usr/bin/env bash
 
-OUTPUT_PATH=${PROJECT_ROOT:-$PWD}/npm-install-output.log
 
-npm --loglevel=warn --progress=false install > ${OUTPUT_PATH} 2>&1 &&
-npm test
+if [ "yes" == "${USE_DOCKER}" ]; then
 
-#echo "bash exit code => $?" &&
-#exit "$?"
+#  NAME=$(basename $(readlink $(dirname "$0")))   # e.g. installation-test-project-custom-config
+
+   NAME=$(basename $(cd $(dirname "$0") && pwd))
+  echo "NAME $NAME"
+
+  docker build  -t  ${NAME} $(dirname "$0")
+  docker run -it --tty=false --rm ${NAME}
+
+else
+
+  sh $(dirname "$0")/local.sh
+
+fi
+
+
+
+
