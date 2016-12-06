@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 
-if [ "yes" == "${USE_DOCKER}" ]; then
+if [ "yes" -eq "${USE_DOCKER}" ]; then
 
 
   docker build  -t init-from-nothing $(dirname "$0")
