@@ -9,6 +9,7 @@ const argv = process.argv.slice(0);
 console.log('We are the one!');
 
 const byline = require('byline');
+const colors = require('colors/safe');
 
 const _ = require('lodash');
 
@@ -33,7 +34,7 @@ Test.create('test-all-projects', {parallel: false}, function (fs, child_process,
 
             this.it.cb('exits cleanly', {timeout: 55000}, t => {
 
-                console.log('=> running item => ', item);
+                console.log('\n\n', colors.cyan('=> running item => '), colors.yellow.bold(item),'\n');
                 const b = path.resolve(cwd, 'test.sh');
 
                 const sh = spawn('sh', [b], {
