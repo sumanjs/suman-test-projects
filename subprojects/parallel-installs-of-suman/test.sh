@@ -3,9 +3,10 @@
 
 if [ "yes" -eq "${USE_DOCKER}" ]; then
 
-
-  docker build  -t init-from-nothing $(dirname "$0")
-  docker run -it --tty=false --rm init-from-nothing
+  NAME=$(basename $(cd $(dirname "$0") && pwd)) # e.g. parallel-installs-of-suman
+  echo "Using docker for $NAME test"
+  docker build  -t  ${NAME} $(dirname "$0")
+  docker run -it --tty=false --rm  ${NAME}
 
 else
 

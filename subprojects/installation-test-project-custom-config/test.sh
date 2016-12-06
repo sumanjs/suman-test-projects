@@ -3,8 +3,10 @@
 
 if [ "yes" -eq "${USE_DOCKER}" ]; then
 
+
   NAME=$(basename $(cd $(dirname "$0") && pwd)) # e.g. installation-test-project-custom-config
-  echo "NAME $NAME"
+
+   echo "Using docker for $NAME test"
 
   docker build  -t  ${NAME} $(dirname "$0")
   docker run -it --tty=false --rm ${NAME}
