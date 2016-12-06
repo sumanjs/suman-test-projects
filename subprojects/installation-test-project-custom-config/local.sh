@@ -3,6 +3,8 @@
 
 OUTPUT_PATH=${PROJECT_ROOT:-$PWD}/npm-install-output.log
 
+rm -rf $(dirname "$0")/node_modules
+
 #npm --loglevel=warn --progress=false install > ${OUTPUT_PATH} 2>&1 &&
 echo "about to run npm install"
 npm --loglevel=warn --progress=false install  &&

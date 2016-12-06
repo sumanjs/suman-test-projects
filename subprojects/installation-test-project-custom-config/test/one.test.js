@@ -11,7 +11,7 @@ const Test = suman.init(module, {
 const colors = require('colors/safe');
 
 
-Test.create('makes birds fly',  (it, describe, child_process, fs, path, assert) => {
+Test.create('makes birds fly',  function (it, describe, child_process, fs, path, assert) {
 
     const spawn = child_process.spawn;
 

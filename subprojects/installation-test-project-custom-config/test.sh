@@ -3,9 +3,7 @@
 
 if [ "yes" == "${USE_DOCKER}" ]; then
 
-#  NAME=$(basename $(readlink $(dirname "$0")))   # e.g. installation-test-project-custom-config
-
-   NAME=$(basename $(cd $(dirname "$0") && pwd))
+  NAME=$(basename $(cd $(dirname "$0") && pwd)) # e.g. installation-test-project-custom-config
   echo "NAME $NAME"
 
   docker build  -t  ${NAME} $(dirname "$0")
