@@ -1,6 +1,6 @@
 {
   "name": "suman-test-projects",
-  "version": "0.0.1",
+  "version": "0.0.1001",
   "description": "Smoke testing projects for Suman library",
   "main": "test-all.js",
   "scripts": {
