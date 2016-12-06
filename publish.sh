@@ -9,6 +9,15 @@ fi
 # CM => commit message, default is "set"
 CM=${1:-set} &&
 
+
+if [ "$2" = "publish" ]; then
+   npm version patch --force -m "Upgrade for several reasons" &&    # bump version
+   echo "bumped version"
+else
+  echo "note that we are *not* publishing to NPM"
+fi
+
+
 git add . &&
 git add -A &&
 git commit --allow-empty -am "pdev:$CM" &&
@@ -22,6 +31,10 @@ git add -A &&
 git commit --allow-empty -am "pdev:$CM" &&
 git push &&
 
-npm publish . &&
+if [ "$2" = "publish" ]; then
+   npm publish .  &&    # bump version
+   echo "published suman to NPM"
+fi
+
 
 git checkout dev
