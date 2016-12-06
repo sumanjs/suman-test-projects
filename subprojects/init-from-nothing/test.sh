@@ -2,11 +2,12 @@
 
 #rm -rf node_modules
 
-OUTPUT_PATH=${PROJECT_ROOT}/npm-install-output.log
+
+OUTPUT_PATH=${PROJECT_ROOT:-$PWD}/npm-install-output.log
 
 rm -rf test
 echo ".....Installing suman with 'npm install -D --silent --progress=false github:oresoftware/suman#dev'...." &&
-npm install -D --silent --progress=false github:oresoftware/suman#dev -f > ${OUTPUT_PATH} 2>&1 &&
+SUMAN_POSTINSTALL_IS_DAEMON=yes npm install -D --silent --progress=false github:oresoftware/suman#dev -f > ${OUTPUT_PATH} 2>&1 &&
 echo "...Making test directory..." &&
 mkdir test
 echo "....initing suman..." &&

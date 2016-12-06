@@ -10,7 +10,9 @@ console.log('We are the one!');
 
 const byline = require('byline');
 
-Test.create('test-all-projects', {parallel: false}, function (fs, child_process, path) {
+const _ = require('lodash');
+
+Test.create('test-all-projects', {parallel: false}, function (fs, child_process, path, util) {
 
     const projectRoot = path.resolve(__dirname + '/../');
 
@@ -18,10 +20,12 @@ Test.create('test-all-projects', {parallel: false}, function (fs, child_process,
 
     const spawn = child_process.spawn;
     const rt = path.resolve(projectRoot, 'subprojects');
-
     console.log('rt => ',rt);
 
-    fs.readdirSync(rt).forEach(item => {
+    const items = _.shuffle(fs.readdirSync(rt));
+    console.log('items in order => ', util.inspect(items));
+
+    items.forEach(item => {
 
         const cwd = path.resolve(rt, item);
 

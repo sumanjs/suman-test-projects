@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-OUTPUT_PATH=${PROJECT_ROOT}/npm-install-output.log
+OUTPUT_PATH=${PROJECT_ROOT:-$PWD}/npm-install-output.log
 
 rm -rf node_modules
-npm --loglevel=error install --progress=false > ${OUTPUT_PATH} 2>&1 &&
+SUMAN_POSTINSTALL_IS_DAEMON=yes npm --loglevel=error install --progress=false > ${OUTPUT_PATH} 2>&1 &&
 npm test
 
 #echo "bash exit code => $?" &&
