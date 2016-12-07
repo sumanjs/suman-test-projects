@@ -25,12 +25,14 @@ echo "items in this dir (PWD) => $(ls -a)"
 
 SUMAN_DOT_DIR=$(cd ~/.suman && pwd)
 
-echo "SUMAN_DOT_DIR before install => $SUMAN_DOT_DIR"
+echo " => SUMAN_DOT_DIR before install => $SUMAN_DOT_DIR"
+
+echo " => items in SUMAN_DOT_DIR before install => $(ls -a $SUMAN_DOT_DIR)"
 
 if [ -d "${SUMAN_DOT_DIR}" ]; then
    echo "items in .suman dir => $(cd ~/.suman && ls -a)"
  else
-   echo " ! No ~/.suman dir present yet... "
+   echo " ! No ~/.suman dir present...yet... "
 fi
 
 
@@ -42,7 +44,7 @@ SUMAN_DOT_DIR=$(cd ~/.suman && pwd)
 echo "SUMAN_DOT_DIR after install => $SUMAN_DOT_DIR"
 
 if [ -d "${SUMAN_DOT_DIR}" ]; then
-  echo "items in .suman/node_modules/.bin dir => $(cd  ~/.suman/node_modules/.bin/ && ls -a)"
+  echo "items in .suman/node_modules/.bin dir => $(cd  ~/.suman/node_modules/.bin && ls -a)"
  else
    echo " ~/.suman dir was not created, test fail "
    exit 1;

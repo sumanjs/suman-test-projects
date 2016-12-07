@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 
-if [ "yes" -eq "${USE_DOCKER}" ]; then
+if [ "yes" = "${USE_DOCKER}" ]; then
 
 
   NAME=$(basename $(cd $(dirname "$0") && pwd)) # e.g. installation-test-project-custom-config
