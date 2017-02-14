@@ -1,0 +1,25 @@
+{
+  "name": "parallel-installs-of-suman",
+  "version": "0.0.101",
+  "description": "Test to see if parallel suman installs succeed",
+  "main": "index.js",
+  "scripts": {
+    "test": "suman"
+  },
+  "repository": {
+    "type": "git",
+    "url": "null"
+  },
+  "keywords": [
+    "Suman",
+    "bdd",
+    "tdd",
+    "test",
+    "meta"
+  ],
+  "author": "Olegzandr",
+  "license": "ISC",
+  "dependencies": {
+    "suman": "github:sumanjs/suman#dev"
+  }
+}

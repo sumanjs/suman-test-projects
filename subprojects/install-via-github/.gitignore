@@ -1,0 +1,7 @@
+
+
+*suman/logs/
+test-target/
+
+node_modules/
+.idea

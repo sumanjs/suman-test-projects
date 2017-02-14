@@ -1,0 +1,37 @@
+{
+  "name": "suman-test-projects",
+  "version": "0.0.1001",
+  "description": "Smoke testing projects for Suman library",
+  "main": "test-all.js",
+  "scripts": {
+    "test": "./test/test-all.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sumanjs/suman-test-projects.git"
+  },
+  "keywords": [
+    "Suman",
+    "testing",
+    "bdd",
+    "tdd",
+    "ava",
+    "mocha",
+    "mochajs"
+  ],
+  "author": "Olegzandr",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sumanjs/suman-test-projects/issues"
+  },
+  "homepage": "https://github.com/sumanjs/suman-test-projects#readme",
+  "devDependencies": {
+    "suman": "github:sumanjs/suman#dev_integration"
+  },
+  "dependencies": {
+    "byline": "^5.0.0",
+    "lodash": "^4.17.2",
+    "rimraf": "^2.5.4",
+    "suman-debug": "0.0.102"
+  }
+}

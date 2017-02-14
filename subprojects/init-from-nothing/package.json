@@ -1,0 +1,14 @@
+{
+  "name": "init-from-nothing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "suman": "github:sumanjs/suman#dev_integration"
+  }
+}
