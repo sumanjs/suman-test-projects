@@ -20,5 +20,5 @@ COPY . .
 
 RUN sudo chmod -R 777 .
 
-ENTRYPOINT ["/usr/src/app/local.sh"]
+ENTRYPOINT ["/usr/src/app/test.sh"]
 
