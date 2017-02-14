@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+git config --global url."https://".insteadOf git://
 
 set -m # allow for job control
 EXIT_CODE=0;  # exit code of overall script

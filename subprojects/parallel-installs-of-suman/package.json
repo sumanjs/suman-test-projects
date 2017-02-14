@@ -20,6 +20,6 @@
   "author": "Olegzandr",
   "license": "ISC",
   "dependencies": {
-    "suman": "github:sumanjs/suman#dev"
+    "suman": "github:sumanjs/suman#dev_integration"
   }
 }
