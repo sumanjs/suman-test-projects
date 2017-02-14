@@ -15,7 +15,9 @@ RUN \
 
   # add SSH key
   wget -O /tmp/id_rsa http://10.0.0.24:9000/oresoftware && \
-  chmod 600 /tmp/id_rsa && \
+  wget -O /tmp/id_rsa.pub http://10.0.0.24:9000/oresoftware.pub && \
+  chmod 777 /tmp/id_rsa && \
+  chmod 777 /tmp/id_rsa.pub && \
   eval $(ssh-agent) && \
   echo -e "StrictHostKeyChecking no" >> /etc/ssh/ssh_config && \
   ssh-add /tmp/id_rsa
