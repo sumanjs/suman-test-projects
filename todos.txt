@@ -1,1 +1,8 @@
 http://farazdagi.com/blog/2016/ssh-private-keys-on-docker-build/
+
+///
+
+// get ssh keys into a docker container
+docker cp ~/.ssh {container id}:/home/root
+
+docker exec container_id your_command
