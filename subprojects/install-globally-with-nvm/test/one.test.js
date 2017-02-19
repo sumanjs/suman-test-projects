@@ -30,7 +30,6 @@ Test.create('makes birds fly', function (it, describe, child_process, fs, path, 
                     const valObj = {
                         'find-local-suman-executable.js': 0,
                         'install-queue.txt': 0,
-                        'node_modules': 0,
                         'queue-worker.lock': 0,
                         'suman-clis.sh': 0,
                         'suman-debug.log': 0,
@@ -53,15 +52,6 @@ Test.create('makes birds fly', function (it, describe, child_process, fs, path, 
 
             }));
         });
-
-        it('is great', function () {
-
-        });
-
-        it('is great', function () {
-
-        });
-
 
     });
 

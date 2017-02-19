@@ -11,9 +11,8 @@ OUTPUT_PATH=${PROJECT_ROOT:-$PWD}/npm-install-output.log
 
 echo " => running npm install ..."
 #npm --loglevel=warn --progress=false install > ${OUTPUT_PATH} 2>&1 &&
-SUMAN_POSTINSTALL_IS_DAEMON=no npm --loglevel=warn --progress=false --only=production install &>/dev/null &&
-export NODE_PATH=${NODE_PATH}:~/.suman/node_modules &&
-node $(dirname "$0")/test.js
+SUMAN_POSTINSTALL_IS_DAEMON=no npm --loglevel=warn --progress=false --only=production install &&
+NODE_PATH=${NODE_PATH}:~/.suman/global/node_modules node $(dirname "$0")/test.js
 
 EXIT=$? &&
 echo " " && # newline

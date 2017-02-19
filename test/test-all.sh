@@ -59,12 +59,11 @@ fi
 echo " " # print  newline
 echo " " # print  newline
 
-
 SUMAN_DOT_DIR=$(cd ~/.suman && pwd)
 echo "SUMAN_DOT_DIR after install => $SUMAN_DOT_DIR"
 
 if [ -d "${SUMAN_DOT_DIR}" ]; then
-  echo "items in .suman/node_modules/.bin dir => $(cd  ~/.suman/node_modules/.bin && ls -a)"
+  echo "items in .suman/global/node_modules/.bin dir => $(cd  ~/.suman/global/node_modules/.bin && ls -a)"
  else
    echo " ~/.suman dir was not created, test fail "
    exit 1;
@@ -73,7 +72,7 @@ fi
 
 echo "now running suman tests"
 
-if [[ $USE_RUNNER = "yes" ]]; then
+if [[ "${USE_RUNNER}" == "yes" ]]; then
 
 #You can use sed to "edit" each line by appending your required suffix:
 #find subprojects -mindepth 1 -maxdepth 1 | sed 's!$!/test.sh!'

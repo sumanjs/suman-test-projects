@@ -7,6 +7,7 @@ Test.create('node-path-test', describe => {
     describe('test all deps', it => {
 
         [
+            'sqlite3',
             'istanbul',
             'babel-cli',
             'suman-inquirer',

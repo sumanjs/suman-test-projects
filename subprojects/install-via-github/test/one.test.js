@@ -1,7 +1,3 @@
-/**
- * Created by Olegzandr on 11/20/16.
- */
-
 
 const suman = require('suman');
 const Test = suman.init(module);
