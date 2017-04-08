@@ -14,3 +14,5 @@ following command in `test-all.sh`:
 ```
 npm install -D oresoftware/suman &&  # installs via github, not npm
 ```
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/sumanjs/suman-test-projects.svg)](https://greenkeeper.io/)
