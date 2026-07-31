@@ -1,5 +1,7 @@
 This is a "Build verification testing" project
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/sumanjs/suman-test-projects.svg)](https://greenkeeper.io/)
+
 All subprojects in this project are in one shared git repo.
 The remote for this repo is here:
 
@@ -14,5 +16,3 @@ following command in `test-all.sh`:
 ```
 npm install -D oresoftware/suman &&  # installs via github, not npm
 ```
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/sumanjs/suman-test-projects.svg)](https://greenkeeper.io/)

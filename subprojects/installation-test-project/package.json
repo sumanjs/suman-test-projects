@@ -7,6 +7,7 @@
     "test": "test"
   },
   "scripts": {
+    "test": "./node_modules/.bin/suman"
   },
   "repository": {
     "type": "git",

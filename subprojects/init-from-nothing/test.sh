@@ -17,7 +17,7 @@ echo "....DONE initing suman..." &&
 echo $(ls -a) &&
 echo "....creating new test file..." &&
 ./node_modules/.bin/suman --create test/one.test.js &&
-./node_modules/.bin/suman test/one.test.js
+npm test
 
 EXIT=$?
 echo " => bash exit code for script '$(dirname "$0")/$(basename "$0")' => $EXIT" &&

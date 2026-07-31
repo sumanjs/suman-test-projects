@@ -27,4 +27,3 @@ COPY . .
 RUN sudo chmod -R 777 .
 
 ENTRYPOINT ["/home/docker/test.sh"]
-
