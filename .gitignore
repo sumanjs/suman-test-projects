@@ -51,3 +51,7 @@ jspm_packages
 
 *suman/logs/
 test-target/
+tmp
+temp
+tmp/worktrees
+temp/worktrees
