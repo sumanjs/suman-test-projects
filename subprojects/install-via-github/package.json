@@ -7,7 +7,9 @@
     "test": "test"
   },
   "scripts": {
-    "test": "./node_modules/.bin/suman test/one.test.js"
+    "test": "./node_modules/.bin/suman test/one.test.js",
+    "lint:ores": "if [ -f ../../.ores-lint/lint.sh ]; then sh ../../.ores-lint/lint.sh; else echo 'ores-lint not installed'; fi",
+    "prepublishOnly": "npm run lint:ores"
   },
   "repository": {
     "type": "git",
@@ -28,5 +30,13 @@
   "dependencies": {
     "lodash": "^4.17.2",
     "suman": "github:sumanjs/suman#dev_integration"
+  },
+  "oresLint": {
+    "note": "Declared, not installed. ores-lint resolves these from a global install - see .ores-lint/README.md",
+    "requires": {
+      "eslint": ">=9",
+      "typescript-eslint": ">=8 (optional; without it .ts files are skipped)"
+    },
+    "install": "npm i -g eslint typescript-eslint"
   }
 }
